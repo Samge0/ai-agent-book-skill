@@ -1,0 +1,15 @@
+{
+  "skill": "coding-agent-meta-capability",
+  "version": "0.1.0",
+  "source_book": "Deep Understanding of AI Agents -- Li Bojie",
+  "darwin_compatible": true,
+  "test_cases": [
+    {"id": "should-trigger-01", "type": "should_trigger", "prompt": "I want to build a general-purpose Agent that can do deep research, generate reports, and analyze data. What architecture should I use?", "expected_behavior": "Activate coding-agent-meta-capability, design Coding Agent + file system as core with seven tools", "notes": "general-purpose architecture"},
+    {"id": "should-trigger-02", "type": "should_trigger", "prompt": "My Agent needs to query a large database and show results to users. Should it read the data and describe it?", "expected_behavior": "Activate coding-agent-meta-capability, use Artifact Pattern -- Agent generates SQL as artifact, system executes directly, LLM never reads thousands of rows", "notes": "artifact pattern"},
+    {"id": "should-trigger-03", "type": "should_trigger", "prompt": "What is the minimum set of tools a Coding Agent needs?", "expected_behavior": "Activate coding-agent-meta-capability, list the seven core tools: Code Interpreter, Bash, Read, Write, Edit, Glob, Grep", "notes": "core toolset"},
+    {"id": "should-not-trigger-01", "type": "should_not_trigger", "prompt": "I am building a fixed-flow customer service bot that follows a script. Do I need a Coding Agent architecture?", "expected_behavior": "Do NOT activate coding-agent-meta-capability as core; this is a vertical Agent. Use workflow pattern with domain tools. Coding is a tool, not the hub.", "notes": "decoy: vertical agent"},
+    {"id": "should-not-trigger-02", "type": "should_not_trigger", "prompt": "How do I write good tool descriptions?", "expected_behavior": "Activate tool-design-principles, NOT coding-agent-meta-capability", "notes": "cross-skill confusion"},
+    {"id": "edge-01", "type": "edge_case", "prompt": "My vertical customer service Agent sometimes needs to verify complex business rules. Should I add code generation?", "expected_behavior": "Yes, but as a tool, not as the core architecture. The book states coding is a foundational capability for all Agents -- precise calculation, data processing, and rule verification depend on it. Even vertical Agents benefit from code as a policy verification tool.", "notes": "boundary -- vertical agent with code as tool"}
+  ],
+  "minimum_pass_rate": 0.8
+}

@@ -1,0 +1,15 @@
+{
+  "skill": "agentic-rag",
+  "version": "0.1.0",
+  "source_book": "Deep Understanding of AI Agents -- Li Bojie",
+  "darwin_compatible": true,
+  "test_cases": [
+    {"id": "should-trigger-01", "type": "should_trigger", "prompt": "My RAG system returns wrong answers when questions involve multiple legal provisions. How do I improve it?", "expected_behavior": "Activate agentic-rag, implement iterative search with query decomposition and refinement", "notes": "complex query failure"},
+    {"id": "should-trigger-02", "type": "should_trigger", "prompt": "I want my Agent to search our knowledge base like a human researcher would -- multiple passes, cross-checking sources.", "expected_behavior": "Activate agentic-rag, implement Think-Act-Observe loop with evaluation sufficiency criteria", "notes": "iterative search design"},
+    {"id": "should-trigger-03", "type": "should_trigger", "prompt": "How do I make my Agent decompose a complex research question before searching?", "expected_behavior": "Activate agentic-rag, design query decomposition as part of the Think phase", "notes": "query decomposition"},
+    {"id": "should-not-trigger-01", "type": "should_not_trigger", "prompt": "My Agent needs to look up a single phone number from a contact database. Do I need Agentic RAG?", "expected_behavior": "Do NOT activate; simple single-hop retrieval. Traditional RAG or direct lookup is sufficient.", "notes": "decoy: simple lookup"},
+    {"id": "should-not-trigger-02", "type": "should_not_trigger", "prompt": "How do I evaluate if my Agent memory system remembers user preferences correctly?", "expected_behavior": "Activate three-level-memory-evaluation, NOT agentic-rag", "notes": "cross-skill confusion"},
+    {"id": "edge-01", "type": "edge_case", "prompt": "My queries are sometimes simple and sometimes complex. Should I always use Agentic RAG?", "expected_behavior": "Use hybrid: let the Agent decide. For simple queries, one-shot retrieval suffices (faster). The Agent should only iterate when initial results are insufficient. The book shows simple queries perform equally well with traditional RAG.", "notes": "boundary -- mixed complexity"}
+  ],
+  "minimum_pass_rate": 0.8
+}

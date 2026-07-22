@@ -1,0 +1,15 @@
+{
+  "skill": "engineering-paradigm-evolution",
+  "version": "0.1.0",
+  "source_book": "Deep Understanding of AI Agents -- Li Bojie",
+  "darwin_compatible": true,
+  "test_cases": [
+    {"id": "should-trigger-01", "type": "should_trigger", "prompt": "I need to automate customer support ticket routing. Should I use a fixed workflow or an autonomous Agent?", "expected_behavior": "Activate engineering-paradigm-evolution, analyze task decomposition: if routing rules are predictable, use workflow; if dynamic judgment needed, use autonomous Agent", "notes": "orchestration pattern selection"},
+    {"id": "should-trigger-02", "type": "should_trigger", "prompt": "My team built a complex multi-agent framework but our results are worse than simple API calls. What went wrong?", "expected_behavior": "Activate engineering-paradigm-evolution, diagnose over-engineering -- should start simple and escalate only when needed", "notes": "over-engineering diagnosis"},
+    {"id": "should-trigger-03", "type": "should_trigger", "prompt": "What is the relationship between prompt engineering, context engineering, and harness engineering?", "expected_behavior": "Activate engineering-paradigm-evolution, explain nested layers", "notes": "conceptual question"},
+    {"id": "should-not-trigger-01", "type": "should_not_trigger", "prompt": "How do I write a system prompt that makes my Agent return JSON format?", "expected_behavior": "Do NOT activate; this is prompt engineering implementation, not paradigm selection", "notes": "decoy: implementation detail"},
+    {"id": "should-not-trigger-02", "type": "should_not_trigger", "prompt": "How do I add error recovery to my Agent?", "expected_behavior": "Activate harness-engineering, NOT engineering-paradigm-evolution", "notes": "cross-skill confusion"},
+    {"id": "edge-01", "type": "edge_case", "prompt": "I have a workflow with 3 steps, but step 2 sometimes needs dynamic branching. What should I do?", "expected_behavior": "Mix patterns: use workflow for steps 1 and 3, autonomous mode for step 2. The book explicitly supports mixing.", "notes": "boundary -- hybrid case"}
+  ],
+  "minimum_pass_rate": 0.8
+}

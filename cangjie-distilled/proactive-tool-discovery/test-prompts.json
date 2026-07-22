@@ -1,0 +1,15 @@
+{
+  "skill": "proactive-tool-discovery",
+  "version": "0.1.0",
+  "source_book": "Deep Understanding of AI Agents -- Li Bojie",
+  "darwin_compatible": true,
+  "test_cases": [
+    {"id": "should-trigger-01", "type": "should_trigger", "prompt": "I have 300 MCP tools across 15 servers. The system prompt is 60K tokens of tool definitions and my Agent picks wrong tools constantly.", "expected_behavior": "Activate proactive-tool-discovery, implement tool search meta-tool with two-level semantic matching, keep only basic tools in system prompt", "notes": "tool explosion"},
+    {"id": "should-trigger-02", "type": "should_trigger", "prompt": "My Qwen 4B model fails when I inject all 120 tool schemas. Can proactive discovery help small models?", "expected_behavior": "Activate proactive-tool-discovery, Experiment 4-6 shows significant improvement for small models with hybrid discovery scheme", "notes": "small model at scale"},
+    {"id": "should-trigger-03", "type": "should_trigger", "prompt": "I want my Agent to discover tools on the fly without maintaining an embedding index. Is that possible?", "expected_behavior": "Activate proactive-tool-discovery, use Skills approach (file-reading, no vector index) for lower-maintenance discovery", "notes": "low-maintenance discovery"},
+    {"id": "should-not-trigger-01", "type": "should_not_trigger", "prompt": "My Agent has 8 tools and works fine. Should I add dynamic tool discovery?", "expected_behavior": "Do NOT activate; 8 tools is well within full-injection range. Discovery adds complexity without benefit.", "notes": "decoy: small tool set"},
+    {"id": "should-not-trigger-02", "type": "should_not_trigger", "prompt": "How do I write better descriptions for my 5 tools?", "expected_behavior": "Activate tool-design-principles, NOT proactive-tool-discovery", "notes": "cross-skill confusion"},
+    {"id": "edge-01", "type": "edge_case", "prompt": "I have 50 tools. Full injection uses 15K tokens. Is that too many for direct injection?", "expected_behavior": "50 tools at 15K tokens is borderline. If the model handles them correctly, keep direct injection. If selection errors appear, switch to discovery. Use judgment based on model capability and error rate.", "notes": "boundary -- borderline count"}
+  ],
+  "minimum_pass_rate": 0.8
+}

@@ -1,0 +1,32 @@
+[
+  {
+    "prompt": "We built a customer service Agent and need to set up a system to track its performance over time and make data-driven improvement decisions",
+    "should_trigger": true,
+    "reason": "Classic three-level evaluation need - environment + methods + decisions"
+  },
+  {
+    "prompt": "Our Agent's accuracy dropped from 90% to 85% after updating the system prompt. How do we figure out what went wrong?",
+    "should_trigger": true,
+    "reason": "Needs evaluation-driven diagnosis, part of the closed loop"
+  },
+  {
+    "prompt": "We need to decide whether to migrate from GPT-4 to Claude for our code generation Agent",
+    "should_trigger": true,
+    "reason": "Model selection decision requiring evaluation-driven approach"
+  },
+  {
+    "prompt": "Help me write unit tests for my Python web application backend",
+    "should_trigger": false,
+    "reason": "Software unit testing, not Agent evaluation system design"
+  },
+  {
+    "prompt": "What's the difference between reinforcement learning and supervised learning?",
+    "should_trigger": false,
+    "reason": "Conceptual ML question, not an evaluation pipeline task"
+  },
+  {
+    "prompt": "We have 5 test cases for our Agent. Is that enough for evaluation?",
+    "should_trigger": true,
+    "reason": "Edge case - very small evaluation set triggers discussion of statistical significance and dataset design principles"
+  }
+]

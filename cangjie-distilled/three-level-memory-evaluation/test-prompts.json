@@ -1,0 +1,15 @@
+{
+  "skill": "three-level-memory-evaluation",
+  "version": "0.1.0",
+  "source_book": "Deep Understanding of AI Agents -- Li Bojie",
+  "darwin_compatible": true,
+  "test_cases": [
+    {"id": "should-trigger-01", "type": "should_trigger", "prompt": "I am building a personal assistant Agent. How do I know if its memory system is good enough?", "expected_behavior": "Activate three-level-memory-evaluation, classify use case by level, build test cases for each level needed", "notes": "memory evaluation"},
+    {"id": "should-trigger-02", "type": "should_trigger", "prompt": "My Agent remembers individual facts fine, but it never connects information from different conversations. What level is it at?", "expected_behavior": "Activate three-level-memory-evaluation, diagnose Level 1 achieved but Level 2/3 missing", "notes": "gap diagnosis"},
+    {"id": "should-trigger-03", "type": "should_trigger", "prompt": "I want my Agent to warn users about problems they have not asked about, like expiring passports. Is that possible?", "expected_behavior": "Activate three-level-memory-evaluation, explain Level 3 Proactive Service and its requirements (Two-Tier Memory Architecture)", "notes": "proactive service goal"},
+    {"id": "should-not-trigger-01", "type": "should_not_trigger", "prompt": "How do I compress old conversation history within a single session?", "expected_behavior": "Activate context-compression-strategy, NOT three-level-memory-evaluation", "notes": "cross-skill confusion"},
+    {"id": "should-not-trigger-02", "type": "should_not_trigger", "prompt": "How do I structure my system prompt for KV cache optimization?", "expected_behavior": "Activate kv-cache-friendly-context, NOT three-level-memory-evaluation", "notes": "cross-skill confusion"},
+    {"id": "edge-01", "type": "edge_case", "prompt": "My users only interact once a month. Do I need Level 3 memory?", "expected_behavior": "Depends on whether the monthly interactions share context. If each interaction is independent, Level 1 suffices. If decisions in one month affect the next, Level 2 minimum is needed.", "notes": "boundary -- usage frequency"}
+  ],
+  "minimum_pass_rate": 0.8
+}

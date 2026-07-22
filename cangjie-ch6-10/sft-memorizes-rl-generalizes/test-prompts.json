@@ -1,0 +1,32 @@
+[
+  {
+    "prompt": "We fine-tuned our Agent on 5000 customer service conversations, but it fails when users phrase things differently than training. What's wrong?",
+    "should_trigger": true,
+    "reason": "Classic SFT memorization problem - needs RL for generalization"
+  },
+  {
+    "prompt": "Should we collect more training examples or switch to a different training method?",
+    "should_trigger": true,
+    "reason": "SFT vs RL decision point"
+  },
+  {
+    "prompt": "Our SFT model performance has plateaued - adding more demonstrations doesn't help on new scenarios",
+    "should_trigger": true,
+    "reason": "Signal that SFT's memorization ceiling has been reached"
+  },
+  {
+    "prompt": "How do I set up a transformer architecture for sequence-to-sequence translation?",
+    "should_trigger": false,
+    "reason": "Architecture design, not post-training method selection"
+  },
+  {
+    "prompt": "What learning rate should I use for fine-tuning?",
+    "should_trigger": false,
+    "reason": "Hyperparameter tuning, not SFT vs RL strategic decision"
+  },
+  {
+    "prompt": "We have exactly 50 high-quality demonstrations. Should we do SFT or RL?",
+    "should_trigger": true,
+    "reason": "Edge case - small dataset, need to discuss sample efficiency tradeoffs and whether RL's exploration can compensate"
+  }
+]

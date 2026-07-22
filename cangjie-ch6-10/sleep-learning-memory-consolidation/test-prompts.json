@@ -1,0 +1,51 @@
+{
+  "skill": "sleep-learning-memory-consolidation",
+  "version": "0.1.0",
+  "source_book": "Deep Understanding of AI Agents -- Li Bojie",
+  "darwin_compatible": true,
+  "test_cases": [
+    {
+      "id": "should-trigger-01",
+      "type": "should_trigger",
+      "prompt": "How do I make my chatbot remember user preferences across sessions and get smarter over time?",
+      "expected_behavior": "Activate sleep-learning-memory-consolidation; design an offline consolidation pass that merges raw user memory entries",
+      "notes": "positive: cross-session personalization"
+    },
+    {
+      "id": "should-trigger-02",
+      "type": "should_trigger",
+      "prompt": "My Agent's user memory file has grown to 500 entries and they contradict each other. How do I clean this up?",
+      "expected_behavior": "Activate sleep-learning-memory-consolidation; run conflict detection and redundancy removal",
+      "notes": "positive: memory cleanup"
+    },
+    {
+      "id": "should-trigger-03",
+      "type": "should_trigger",
+      "prompt": "I want my Agent to automatically update what it knows about me when my preferences change. How?",
+      "expected_behavior": "Activate sleep-learning-memory-consolidation; implement temporal conflict resolution (latest wins, archive old)",
+      "notes": "positive: memory evolution"
+    },
+    {
+      "id": "should-not-trigger-01",
+      "type": "should_not_trigger",
+      "prompt": "My conversation context is too long. How do I compress it?",
+      "expected_behavior": "Do NOT activate this skill; use context-compression-strategy for within-session compression",
+      "notes": "decoy: context compression, not memory consolidation"
+    },
+    {
+      "id": "should-not-trigger-02",
+      "type": "should_not_trigger",
+      "prompt": "How do I load a set of PDF documents into my Agent's knowledge base?",
+      "expected_behavior": "Activate agentic-rag or RAG pipeline skills, NOT sleep-learning (that is batch knowledge loading, not user memory evolution)",
+      "notes": "cross-skill confusion: KB ingestion vs user memory consolidation"
+    },
+    {
+      "id": "edge-01",
+      "type": "edge_case",
+      "prompt": "My Agent stores user memory but it's just 10 entries from one session. Should I run sleep consolidation?",
+      "expected_behavior": "Probably premature. Consolidation provides value when raw memory is large, redundant, or cross-session. 10 entries from one session can be managed directly.",
+      "notes": "boundary: small single-session memory doesn't need consolidation"
+    }
+  ],
+  "minimum_pass_rate": 0.8
+}

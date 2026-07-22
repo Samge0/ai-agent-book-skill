@@ -1,0 +1,32 @@
+[
+  {
+    "prompt": "Our Agent spent 20 minutes figuring out a complex refund process. How can it remember this for next time?",
+    "should_trigger": true,
+    "reason": "Classic externalized learning need - distill experience into reusable artifact"
+  },
+  {
+    "prompt": "The Agent keeps doing the same API calls in the same order every time. Can we automate this?",
+    "should_trigger": true,
+    "reason": "Workflow recording -> code tool creation scenario"
+  },
+  {
+    "prompt": "Should we fine-tune the model to remember our company's refund policy?",
+    "should_trigger": false,
+    "reason": "Fine-tuning is parametric learning, not externalized learning - cross-skill confusion test"
+  },
+  {
+    "prompt": "How do I set up a vector database for RAG?",
+    "should_trigger": false,
+    "reason": "RAG infrastructure setup, not experience distillation methodology"
+  },
+  {
+    "prompt": "Our Agent discovered that Company X requires a verification code sent to email. Where should this be stored?",
+    "should_trigger": true,
+    "reason": "Edge case - factual knowledge that belongs in the knowledge base"
+  },
+  {
+    "prompt": "The Agent found an open-source library that solves our video processing need. Should it create a reusable tool?",
+    "should_trigger": true,
+    "reason": "Tool creation from web - the second dimension of self-evolution"
+  }
+]

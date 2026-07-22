@@ -1,0 +1,32 @@
+[
+  {
+    "prompt": "We're building a voice assistant that needs to answer 'what's the weather?' instantly but research 'compare these three insurance plans' in the background",
+    "should_trigger": true,
+    "reason": "Classic fast-slow separation need - instant simple + background complex"
+  },
+  {
+    "prompt": "Our Agent is too slow for real-time voice but a smaller model loses quality on complex questions",
+    "should_trigger": true,
+    "reason": "Needs architectural separation rather than model size compromise"
+  },
+  {
+    "prompt": "How do I reduce the latency of my LLM inference server?",
+    "should_trigger": false,
+    "reason": "Inference optimization, not architectural separation"
+  },
+  {
+    "prompt": "What's the difference between cascaded and end-to-end voice models?",
+    "should_trigger": false,
+    "reason": "Voice paradigm question - related but different skill (three-voice-paradigms)"
+  },
+  {
+    "prompt": "We want users to talk to the Agent while it operates a web browser. Is that possible?",
+    "should_trigger": true,
+    "reason": "Computer Use + voice decoupling scenario"
+  },
+  {
+    "prompt": "Our single model handles both conversation and tool use but takes 8 seconds to respond. Users complain.",
+    "should_trigger": true,
+    "reason": "Edge case - exactly the latency problem that fast-slow separation solves"
+  }
+]

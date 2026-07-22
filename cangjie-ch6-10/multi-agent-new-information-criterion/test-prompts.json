@@ -1,0 +1,32 @@
+[
+  {
+    "prompt": "We want to build a system where 3 Agents debate to find the best answer. Will that work?",
+    "should_trigger": true,
+    "reason": "Needs new information criterion - debate alone provides no new info"
+  },
+  {
+    "prompt": "Our multi-agent system isn't outperforming a single Agent with the same compute budget. Why?",
+    "should_trigger": true,
+    "reason": "Classic symptom of no-new-information collaboration"
+  },
+  {
+    "prompt": "Should we use a code Agent with a reviewer Agent that runs the tests?",
+    "should_trigger": true,
+    "reason": "Reviewer gets execution results = new information = justified multi-agent"
+  },
+  {
+    "prompt": "How do I set up a Redis message bus for inter-agent communication?",
+    "should_trigger": false,
+    "reason": "Infrastructure setup, not the strategic criterion for multi-agent value"
+  },
+  {
+    "prompt": "What's the difference between peer collaboration and manager pattern?",
+    "should_trigger": false,
+    "reason": "Topology selection question - different skill"
+  },
+  {
+    "prompt": "Our frontend code generation Agent doesn't know if the UI looks right. Would adding a visual reviewer help?",
+    "should_trigger": true,
+    "reason": "Edge case - screenshots are new information the code generator couldn't access"
+  }
+]

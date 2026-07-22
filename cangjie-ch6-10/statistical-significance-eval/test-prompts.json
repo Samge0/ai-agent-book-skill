@@ -1,0 +1,51 @@
+{
+  "skill": "statistical-significance-eval",
+  "version": "0.1.0",
+  "source_book": "Deep Understanding of AI Agents -- Li Bojie",
+  "darwin_compatible": true,
+  "test_cases": [
+    {
+      "id": "should-trigger-01",
+      "type": "should_trigger",
+      "prompt": "Our new model scored 72% vs the old model's 69% on 100 test cases. Should we migrate?",
+      "expected_behavior": "Activate statistical-significance-eval; calculate SE=sqrt(0.69*0.31/100)=4.6%, 95% CI is +/-9%, the 3% gap is within noise -- do NOT switch",
+      "notes": "positive: the classic 3% trap"
+    },
+    {
+      "id": "should-trigger-02",
+      "type": "should_trigger",
+      "prompt": "How many test cases do I need for a reliable benchmark comparison?",
+      "expected_behavior": "Activate statistical-significance-eval and calculate required n from desired confidence level and expected effect size",
+      "notes": "positive: sample size planning"
+    },
+    {
+      "id": "should-trigger-03",
+      "type": "should_trigger",
+      "prompt": "We ran an A/B test and model A scored 85% vs model B 83%. My boss wants to switch to A.",
+      "expected_behavior": "Activate statistical-significance-eval; question whether 2% is significant given the sample size and run count",
+      "notes": "positive: challenging a premature switching decision"
+    },
+    {
+      "id": "should-not-trigger-01",
+      "type": "should_not_trigger",
+      "prompt": "How do I set up an evaluation environment with Docker containers for my Agent?",
+      "expected_behavior": "Do NOT activate this skill; that is evaluation environment setup, not statistical significance",
+      "notes": "decoy: infrastructure, not statistics"
+    },
+    {
+      "id": "should-not-trigger-02",
+      "type": "should_not_trigger",
+      "prompt": "Which component of my Agent is causing failures -- the model or the prompt?",
+      "expected_behavior": "Activate model-swap-vs-ablation, NOT statistical-significance-eval",
+      "notes": "cross-skill confusion: ablation diagnoses WHERE the problem is; significance tests WHETHER a difference is real"
+    },
+    {
+      "id": "edge-01",
+      "type": "edge_case",
+      "prompt": "My model scored 95% and the alternative scored 60% on 20 test cases. Do I need significance testing?",
+      "expected_behavior": "The 35% gap is so large relative to the noise bandwidth that significance testing is unnecessary. The difference is clearly real.",
+      "notes": "boundary: large effect sizes don't need formal testing"
+    }
+  ],
+  "minimum_pass_rate": 0.8
+}

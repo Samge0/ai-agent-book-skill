@@ -1,0 +1,51 @@
+{
+  "skill": "agent-status-bar",
+  "version": "0.1.0",
+  "source_book": "Deep Understanding of AI Agents -- Li Bojie",
+  "darwin_compatible": true,
+  "test_cases": [
+    {
+      "id": "should-trigger-01",
+      "type": "should_trigger",
+      "prompt": "My research Agent keeps calling the same search tool 20+ times and never stops. How do I make it aware it's looping?",
+      "expected_behavior": "Activate agent-status-bar and recommend injecting a call-counter meta-message at context end",
+      "notes": "positive: infinite loop prevention"
+    },
+    {
+      "id": "should-trigger-02",
+      "type": "should_trigger",
+      "prompt": "I'm building a production Agent that sometimes forgets which tasks remain. How can I give it progress awareness?",
+      "expected_behavior": "Activate agent-status-bar and design a TODO-progress status bar",
+      "notes": "positive: goal drift prevention"
+    },
+    {
+      "id": "should-trigger-03",
+      "type": "should_trigger",
+      "prompt": "My Agent needs to track API budget across a long session. Can I show it how much budget is left?",
+      "expected_behavior": "Activate agent-status-bar and inject remaining-budget as a meta-message",
+      "notes": "positive: budget tracking"
+    },
+    {
+      "id": "should-not-trigger-01",
+      "type": "should_not_trigger",
+      "prompt": "How do I write a good system prompt for my chatbot?",
+      "expected_behavior": "Do NOT activate agent-status-bar; this is static prompt engineering, not runtime state tracking",
+      "notes": "decoy: system prompt design is not the status bar"
+    },
+    {
+      "id": "should-not-trigger-02",
+      "type": "should_not_trigger",
+      "prompt": "My Agent's context is getting too long. How do I compress old conversation history?",
+      "expected_behavior": "Activate context-compression-strategy, NOT agent-status-bar",
+      "notes": "cross-skill confusion: compression vs status tracking"
+    },
+    {
+      "id": "edge-01",
+      "type": "edge_case",
+      "prompt": "My Agent has a 5-turn conversation and sometimes skips a step. Should I add a status bar?",
+      "expected_behavior": "Probably overkill for 5 turns. The model can self-track short conversations. Consider it only if the 5 turns are extremely complex.",
+      "notes": "boundary: short conversations don't need status bars"
+    }
+  ],
+  "minimum_pass_rate": 0.8
+}

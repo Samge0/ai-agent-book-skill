@@ -1,0 +1,15 @@
+{
+  "skill": "proposer-reviewer-pattern",
+  "version": "0.1.0",
+  "source_book": "Deep Understanding of AI Agents -- Li Bojie",
+  "darwin_compatible": true,
+  "test_cases": [
+    {"id": "should-trigger-01", "type": "should_trigger", "prompt": "My coding Agent says it fixed the bug but the tests still fail. It keeps declaring done prematurely. How do I fix this?", "expected_behavior": "Activate proposer-reviewer-pattern, implement verification loop where test results (not Agent feeling) determine completion", "notes": "premature completion"},
+    {"id": "should-trigger-02", "type": "should_trigger", "prompt": "I need my Agent to generate high-quality reports. Right now it produces a first draft and stops. How do I improve quality?", "expected_behavior": "Activate proposer-reviewer-pattern, implement Proposer-Reviewer iteration loop for report quality", "notes": "quality convergence"},
+    {"id": "should-trigger-03", "type": "should_trigger", "prompt": "My Agent gives up after the first failed API call instead of trying alternative approaches. What pattern should I use?", "expected_behavior": "Activate proposer-reviewer-pattern, the method prevents premature giving-up by having the reviewer check if alternatives exist", "notes": "premature giving up"},
+    {"id": "should-not-trigger-01", "type": "should_not_trigger", "prompt": "How do I validate that my JSON API returns correct data?", "expected_behavior": "Do NOT activate full proposer-reviewer; use simple deterministic validation (JSON schema check). This is a simple rule check.", "notes": "decoy: simple validation"},
+    {"id": "should-not-trigger-02", "type": "should_not_trigger", "prompt": "How do I constrain my Agent from executing dangerous operations?", "expected_behavior": "Activate harness-engineering (Constrain layer), NOT proposer-reviewer-pattern", "notes": "cross-skill confusion"},
+    {"id": "edge-01", "type": "edge_case", "prompt": "My Agent generates art/creative content. A reviewer Agent keeps rejecting it for subjective reasons. What should I do?", "expected_behavior": "The reviewer aesthetic may differ from the user. Incorporate user preference feedback into the review criteria. The book notes this risk: the Reviewer may converge on a wrong local optimum without user input.", "notes": "boundary -- subjective quality"}
+  ],
+  "minimum_pass_rate": 0.8
+}

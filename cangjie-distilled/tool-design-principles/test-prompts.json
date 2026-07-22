@@ -1,0 +1,15 @@
+{
+  "skill": "tool-design-principles",
+  "version": "0.1.0",
+  "source_book": "Deep Understanding of AI Agents -- Li Bojie",
+  "darwin_compatible": true,
+  "test_cases": [
+    {"id": "should-trigger-01", "type": "should_trigger", "prompt": "My Agent keeps using web_search instead of my specialized database_query tool even though the database tool is available. Why?", "expected_behavior": "Activate tool-design-principles, audit the database_query tool description for missing when-to-use guidance and unclear boundaries", "notes": "wrong tool selection"},
+    {"id": "should-trigger-02", "type": "should_trigger", "prompt": "I have 5 separate tools for reading PDF, DOCX, PPTX, XLSX, and TXT files. Should I combine them?", "expected_behavior": "Activate tool-design-principles, integrate into unified read_document with file_type parameter (functionally similar, same job)", "notes": "granularity decision"},
+    {"id": "should-trigger-03", "type": "should_trigger", "prompt": "How should I write the description for my send_email tool so the Agent uses it correctly?", "expected_behavior": "Activate tool-design-principles, describe when-to-use, boundaries (cannot send to unauthorized recipients), concrete parameter examples", "notes": "description writing"},
+    {"id": "should-not-trigger-01", "type": "should_not_trigger", "prompt": "How do I add error recovery when my Agent tool calls fail?", "expected_behavior": "Activate harness-engineering, NOT tool-design-principles", "notes": "cross-skill confusion"},
+    {"id": "should-not-trigger-02", "type": "should_not_trigger", "prompt": "How do I organize 200 tools so the Agent can find the right one?", "expected_behavior": "Activate proactive-tool-discovery or progressive-disclosure-skills, NOT tool-design-principles", "notes": "cross-skill confusion"},
+    {"id": "edge-01", "type": "edge_case", "prompt": "I have two tools that do similar things but one is read-only and one writes to a production database. Should I integrate them?", "expected_behavior": "Do NOT integrate. Keep separate -- the write tool needs finer-grained permission control and audit trails. The book explicitly states dedicated tools are necessary for operations requiring special permissions.", "notes": "boundary -- security vs generality"}
+  ],
+  "minimum_pass_rate": 0.8
+}

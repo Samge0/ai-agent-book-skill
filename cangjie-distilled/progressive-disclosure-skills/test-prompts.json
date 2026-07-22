@@ -1,0 +1,15 @@
+{
+  "skill": "progressive-disclosure-skills",
+  "version": "0.1.0",
+  "source_book": "Deep Understanding of AI Agents -- Li Bojie",
+  "darwin_compatible": true,
+  "test_cases": [
+    {"id": "should-trigger-01", "type": "should_trigger", "prompt": "My Agent system prompt is 8000 tokens and growing. It contains instructions for 20 different task types. How do I manage this?", "expected_behavior": "Activate progressive-disclosure-skills, split instructions into skill files, replace with thin catalog in system prompt", "notes": "context bloat problem"},
+    {"id": "should-trigger-02", "type": "should_trigger", "prompt": "I have 150 MCP tools and the model keeps picking the wrong one. How do I organize them?", "expected_behavior": "Activate progressive-disclosure-skills, organize tools into skill directories browsable by file-reading, expose only names at startup", "notes": "tool explosion"},
+    {"id": "should-trigger-03", "type": "should_trigger", "prompt": "I want different customers to see different capabilities without maintaining separate system prompts. Can I modularize?", "expected_behavior": "Activate progressive-disclosure-skills, deploy same catalog but conditionally load different skill files per customer", "notes": "modular deployment"},
+    {"id": "should-not-trigger-01", "type": "should_not_trigger", "prompt": "My Agent has 5 tools and the system prompt is 500 tokens. Should I use skills?", "expected_behavior": "Do NOT activate; the overhead is not justified for small stable capability sets", "notes": "decoy: too small for skills"},
+    {"id": "should-not-trigger-02", "type": "should_not_trigger", "prompt": "How do I compress old conversation history to fit in the context window?", "expected_behavior": "Activate context-compression-strategy, NOT progressive-disclosure-skills", "notes": "cross-skill confusion"},
+    {"id": "edge-01", "type": "edge_case", "prompt": "My Agent needs to load a skill but the description in the catalog is ambiguous -- two skills could match. What do I do?", "expected_behavior": "Improve the skill descriptions to be more distinctive. The book notes the metacognition problem: if the model cannot tell which skill it needs, the catalog descriptions need refinement.", "notes": "boundary -- ambiguous trigger"}
+  ],
+  "minimum_pass_rate": 0.8
+}

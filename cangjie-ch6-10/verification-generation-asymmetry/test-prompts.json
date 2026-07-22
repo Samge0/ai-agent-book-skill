@@ -1,0 +1,32 @@
+[
+  {
+    "prompt": "We want to train an Agent for SQL generation. We can check if queries return correct results but don't have expert-written examples.",
+    "should_trigger": true,
+    "reason": "Perfect verification-generation asymmetry - verification is automated, generation is expensive"
+  },
+  {
+    "prompt": "Can we train a code generation Agent without paying experts to write solutions?",
+    "should_trigger": true,
+    "reason": "RLVR scenario - unit tests serve as verifiers"
+  },
+  {
+    "prompt": "How do we train a model to write creative fiction?",
+    "should_trigger": false,
+    "reason": "Verification is as hard as generation for creative tasks - asymmetry doesn't apply"
+  },
+  {
+    "prompt": "What loss function does PPO use?",
+    "should_trigger": false,
+    "reason": "Algorithm detail, not verification-generation strategic decision"
+  },
+  {
+    "prompt": "We have a math problem solver. Answers can be verified by checking against known solutions. Should we use SFT or RL?",
+    "should_trigger": true,
+    "reason": "Edge case - both are viable; the skill helps decide based on whether demonstrations are available"
+  },
+  {
+    "prompt": "Our unit tests can verify code correctness but the model keeps finding ways to pass tests without actually solving the problem",
+    "should_trigger": true,
+    "reason": "Reward hacking - verification exists but is being gamed; needs RLVP-style path constraints"
+  }
+]

@@ -1,0 +1,32 @@
+[
+  {
+    "prompt": "Our Agent's success rate hasn't improved despite upgrading to a more powerful model. How do we diagnose what's wrong?",
+    "should_trigger": true,
+    "reason": "Classic model swap scenario - model upgrade didn't help, suggesting Harness bottleneck"
+  },
+  {
+    "prompt": "We added a context compression module to our Agent but aren't sure if it actually helps performance",
+    "should_trigger": true,
+    "reason": "Needs ablation experiment to measure the component's true contribution"
+  },
+  {
+    "prompt": "Should we use GPT-4 or Claude for our customer service chatbot?",
+    "should_trigger": true,
+    "reason": "Model selection that benefits from understanding whether model or Harness is the bottleneck"
+  },
+  {
+    "prompt": "How do I fine-tune a BERT model for sentiment analysis?",
+    "should_trigger": false,
+    "reason": "Traditional ML fine-tuning, not Agent diagnosis"
+  },
+  {
+    "prompt": "What's the difference between PPO and GRPO algorithms?",
+    "should_trigger": false,
+    "reason": "Algorithm comparison question, not Agent bottleneck diagnosis - cross-skill confusion test"
+  },
+  {
+    "prompt": "We have a 2-point difference between two models (73% vs 71%). Should we switch?",
+    "should_trigger": true,
+    "reason": "Edge case - the difference likely falls within noise bandwidth, triggering statistical significance discussion"
+  }
+]

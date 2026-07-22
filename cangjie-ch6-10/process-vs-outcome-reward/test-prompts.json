@@ -1,0 +1,32 @@
+[
+  {
+    "prompt": "We're training a customer service Agent with RL. Should we score each conversation turn or only whether the problem was solved?",
+    "should_trigger": true,
+    "reason": "Classic process vs outcome reward design decision"
+  },
+  {
+    "prompt": "Our multi-turn RL training is very slow. The Agent rarely succeeds. What can we do?",
+    "should_trigger": true,
+    "reason": "Sparse outcome reward problem - process rewards or RLVP could help"
+  },
+  {
+    "prompt": "How do I set the learning rate for my neural network?",
+    "should_trigger": false,
+    "reason": "Hyperparameter tuning, not reward design"
+  },
+  {
+    "prompt": "What is the Bellman equation?",
+    "should_trigger": false,
+    "reason": "RL theory question, not reward function design"
+  },
+  {
+    "prompt": "Our process rewards constrain the Agent to always follow the same path. We want more exploration.",
+    "should_trigger": true,
+    "reason": "Edge case - process rewards are too constraining, need to shift toward outcome rewards"
+  },
+  {
+    "prompt": "We want to train a robot to grasp objects. Should we reward each step of the approach or only whether it successfully grasps?",
+    "should_trigger": true,
+    "reason": "Robotics reward design - depends on whether optimal path is known"
+  }
+]

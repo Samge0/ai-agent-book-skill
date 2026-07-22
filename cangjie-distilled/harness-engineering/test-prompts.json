@@ -1,0 +1,15 @@
+{
+  "skill": "harness-engineering",
+  "version": "0.1.0",
+  "source_book": "Deep Understanding of AI Agents -- Li Bojie",
+  "darwin_compatible": true,
+  "test_cases": [
+    {"id": "should-trigger-01", "type": "should_trigger", "prompt": "My Agent keeps calling a payment API with wrong parameters and sometimes double-charges users. How do I prevent this?", "expected_behavior": "Activate harness-engineering and implement Constrain (validate parameters before execution), Verify (confirm charge went through), Correct (rollback on duplicate detection)", "notes": "production reliability problem"},
+    {"id": "should-trigger-02", "type": "should_trigger", "prompt": "I need to deploy a customer service Agent that can cancel orders and issue refunds. What safety measures do I need?", "expected_behavior": "Activate harness-engineering for risk-rated tools, human-in-the-loop for high-risk operations, circuit breaker for repeated failures", "notes": "building production Agent with consequences"},
+    {"id": "should-trigger-03", "type": "should_trigger", "prompt": "My Agent gets stuck in infinite loops when a tool fails. How do I add error recovery?", "expected_behavior": "Activate harness-engineering, implement Correct layer (circuit breaker, max retries, fallback to human)", "notes": "error recovery"},
+    {"id": "should-not-trigger-01", "type": "should_not_trigger", "prompt": "Help me write a better system prompt for my chatbot so it gives more helpful answers", "expected_behavior": "Do NOT activate harness-engineering; this is prompt engineering, not Harness engineering", "notes": "decoy: prompt optimization, not reliability"},
+    {"id": "should-not-trigger-02", "type": "should_not_trigger", "prompt": "How do I compress my Agent conversation history to save tokens?", "expected_behavior": "Activate context-compression-strategy, NOT harness-engineering", "notes": "cross-skill confusion test"},
+    {"id": "edge-01", "type": "edge_case", "prompt": "I have a simple Agent that just calls one weather API and returns the result. Do I need a Harness?", "expected_behavior": "Minimal Harness needed: basic error handling for API failures. Full 5-layer Harness is overkill. Use judgment based on consequences of failure.", "notes": "boundary -- minimal case"}
+  ],
+  "minimum_pass_rate": 0.8
+}

@@ -1,0 +1,41 @@
+# Dependencies
+node_modules/
+__pycache__/
+*.pyc
+*.pyo
+*.egg-info/
+.venv/
+venv/
+
+# OS files
+.DS_Store
+Thumbs.db
+desktop.ini
+ehthumbs.db
+
+# Editor files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+*.sublime-project
+*.sublime-workspace
+
+# Temporary/helper files
+*.tmp
+*.bak
+*.log
+*_write_*.py
+write_*.py
+
+# Claude/Hermes internal tracking
+.bundled_manifest
+.webui-managed-skills.json
+
+# custom
+.vscode/
+.cache/
+.claude/
+.codex/
+.cursor/

@@ -1,0 +1,32 @@
+[
+  {
+    "prompt": "Our Agent succeeds about 60% of the time on customer service tasks. Is that good enough for production?",
+    "should_trigger": true,
+    "reason": "Classic Pass@k vs Pass^k analysis needed - 60% single-shot means very different things for capability vs reliability"
+  },
+  {
+    "prompt": "We need our medical appointment booking Agent to never fail. How do we measure that?",
+    "should_trigger": true,
+    "reason": "Needs Pass^k for reliability verification in critical deployment"
+  },
+  {
+    "prompt": "What accuracy metric should we use to compare two Agent configurations?",
+    "should_trigger": true,
+    "reason": "Metric selection question directly addressed by this skill"
+  },
+  {
+    "prompt": "How do I calculate the F1 score for my text classification model?",
+    "should_trigger": false,
+    "reason": "Traditional classification metric, not Agent capability/reliability assessment"
+  },
+  {
+    "prompt": "We're doing A/B testing on our website. Which statistical test should we use?",
+    "should_trigger": false,
+    "reason": "Web analytics A/B testing, not Agent evaluation - cross-skill confusion test"
+  },
+  {
+    "prompt": "Our Agent sometimes gets the right answer on the first try but often takes multiple attempts. Is it good?",
+    "should_trigger": true,
+    "reason": "Edge case - exactly the scenario where Pass@k vs Pass^k reveals the capability-reliability gap"
+  }
+]

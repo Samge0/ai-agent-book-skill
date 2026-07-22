@@ -1,0 +1,15 @@
+{
+  "skill": "kv-cache-friendly-context",
+  "version": "0.1.0",
+  "source_book": "Deep Understanding of AI Agents -- Li Bojie",
+  "darwin_compatible": true,
+  "test_cases": [
+    {"id": "should-trigger-01", "type": "should_trigger", "prompt": "My multi-turn Agent costs 0/day in API fees and every call seems to recompute from scratch. How do I optimize?", "expected_behavior": "Activate kv-cache-friendly-context, audit prefix/suffix separation, ensure static content stays in prefix", "notes": "cost optimization"},
+    {"id": "should-trigger-02", "type": "should_trigger", "prompt": "I need to add a live timestamp and tool-call counter to my Agent context. Where should I put it?", "expected_behavior": "Activate kv-cache-friendly-context, inject as user message at end of context (dynamic suffix), NOT in system prompt", "notes": "status bar placement"},
+    {"id": "should-trigger-03", "type": "should_trigger", "prompt": "I am designing dynamic tool loading for my Agent. How do I avoid breaking the KV cache?", "expected_behavior": "Activate kv-cache-friendly-context, append new tool schemas at end of conversation as user messages, keep only tool name list in system prompt", "notes": "dynamic tool loading"},
+    {"id": "should-not-trigger-01", "type": "should_not_trigger", "prompt": "How do I compress old tool results to save context space?", "expected_behavior": "Activate context-compression-strategy, NOT kv-cache-friendly-context", "notes": "cross-skill confusion"},
+    {"id": "should-not-trigger-02", "type": "should_not_trigger", "prompt": "What model should I use for my Agent?", "expected_behavior": "Do NOT activate; this is model selection, not context layout", "notes": "decoy: irrelevant"},
+    {"id": "edge-01", "type": "edge_case", "prompt": "I have a system prompt that needs to change based on user role, but only once per session. Is that OK for caching?", "expected_behavior": "Yes -- one prefix mutation per session is acceptable. Set the role at session start, then keep the prefix stable for the rest of the session.", "notes": "boundary -- rare mutation"}
+  ],
+  "minimum_pass_rate": 0.8
+}

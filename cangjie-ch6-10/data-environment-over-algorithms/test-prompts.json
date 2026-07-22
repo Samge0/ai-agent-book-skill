@@ -1,0 +1,32 @@
+[
+  {
+    "prompt": "We're starting RL training for our Agent. Should we use PPO or GRPO?",
+    "should_trigger": true,
+    "reason": "Redirects to data/environment assessment before algorithm selection"
+  },
+  {
+    "prompt": "Our RL training isn't converging. We've tried 3 different algorithms.",
+    "should_trigger": true,
+    "reason": "Classic misdiagnosis - likely environment/data problem, not algorithm"
+  },
+  {
+    "prompt": "What's the mathematical difference between PPO's clipping mechanism and GRPO's group-relative advantage?",
+    "should_trigger": false,
+    "reason": "Algorithm research question - the skill says algorithms matter last, not never"
+  },
+  {
+    "prompt": "How do I implement a transformer from scratch?",
+    "should_trigger": false,
+    "reason": "Architecture implementation, not RL training strategy"
+  },
+  {
+    "prompt": "We have perfect simulation fidelity and excellent data. Now which algorithm?",
+    "should_trigger": true,
+    "reason": "Edge case - when data and env ARE ready, algorithm selection becomes relevant"
+  },
+  {
+    "prompt": "Our customer service simulation always responds from a fixed script. RL results are poor.",
+    "should_trigger": true,
+    "reason": "Environment fidelity problem - simulation doesn't match real user behavior"
+  }
+]

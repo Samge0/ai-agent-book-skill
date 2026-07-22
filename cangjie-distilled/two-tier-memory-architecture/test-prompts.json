@@ -1,0 +1,15 @@
+{
+  "skill": "two-tier-memory-architecture",
+  "version": "0.1.0",
+  "source_book": "Deep Understanding of AI Agents -- Li Bojie",
+  "darwin_compatible": true,
+  "test_cases": [
+    {"id": "should-trigger-01", "type": "should_trigger", "prompt": "I want my personal assistant Agent to warn users when their passport is about to expire while booking an international flight. How?", "expected_behavior": "Activate two-tier-memory-architecture, implement Tier 1 resident facts (passport expiry) + Tier 2 contextual retrieval for verification", "notes": "proactive service"},
+    {"id": "should-trigger-02", "type": "should_trigger", "prompt": "My Agent gets confused when different family members give conflicting instructions in separate calls. How do I resolve conflicts?", "expected_behavior": "Activate two-tier-memory-architecture, implement Contextual Retrieval with person/intent prefixes to disambiguate", "notes": "conflict resolution"},
+    {"id": "should-trigger-03", "type": "should_trigger", "prompt": "What memory architecture do I need for an Agent that truly knows the user across hundreds of sessions?", "expected_behavior": "Activate two-tier-memory-architecture, explain Tier 1 structured facts + Tier 2 contextual retrieval", "notes": "architecture design"},
+    {"id": "should-not-trigger-01", "type": "should_not_trigger", "prompt": "How do I compress old tool results in a single session?", "expected_behavior": "Activate context-compression-strategy, NOT two-tier-memory-architecture", "notes": "cross-skill confusion"},
+    {"id": "should-not-trigger-02", "type": "should_not_trigger", "prompt": "How do I make my Agent search a knowledge base iteratively?", "expected_behavior": "Activate agentic-rag, NOT two-tier-memory-architecture", "notes": "cross-skill confusion"},
+    {"id": "edge-01", "type": "edge_case", "prompt": "I have 10,000 user memories. Should I put them all in Advanced JSON Cards?", "expected_behavior": "No -- use Advanced JSON Cards only for critical, low-volume data. For 10,000 memories, use Simple Notes for non-critical items and reserve structured cards for key information. The architecture supports hybrid approaches.", "notes": "boundary -- scale"}
+  ],
+  "minimum_pass_rate": 0.8
+}

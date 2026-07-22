@@ -1,0 +1,15 @@
+{
+  "skill": "context-compression-strategy",
+  "version": "0.1.0",
+  "source_book": "Deep Understanding of AI Agents -- Li Bojie",
+  "darwin_compatible": true,
+  "test_cases": [
+    {"id": "should-trigger-01", "type": "should_trigger", "prompt": "My research Agent does 10 web searches and the context overflows before it can synthesize results. How do I fix this?", "expected_behavior": "Activate context-compression-strategy, implement context-aware compression with current query intent, apply tool result budget control", "notes": "context overflow"},
+    {"id": "should-trigger-02", "type": "should_trigger", "prompt": "After 20 rounds of conversation my Agent starts giving worse answers, even though the context window is not full yet.", "expected_behavior": "Activate context-compression-strategy, diagnose Context Rot -- compress raw tool results into structured summaries to improve information density", "notes": "context rot"},
+    {"id": "should-trigger-03", "type": "should_trigger", "prompt": "My Agent context includes 50K tokens of API responses but only needs a few fields from each. What should I do?", "expected_behavior": "Activate context-compression-strategy, apply tool result budget control with external storage, context-aware summarization", "notes": "tool result bloat"},
+    {"id": "should-not-trigger-01", "type": "should_not_trigger", "prompt": "How do I structure my system prompt to be cache-friendly?", "expected_behavior": "Activate kv-cache-friendly-context, NOT context-compression-strategy", "notes": "cross-skill confusion"},
+    {"id": "should-not-trigger-02", "type": "should_not_trigger", "prompt": "How do I remember user preferences across sessions?", "expected_behavior": "Activate two-tier-memory-architecture or three-level-memory-evaluation, NOT context-compression-strategy", "notes": "cross-skill confusion"},
+    {"id": "edge-01", "type": "edge_case", "prompt": "I need to compress but my task requires exact verbatim retention of legal contract clauses. Can I still compress?", "expected_behavior": "Use selective compression only: compress tool results and conversation noise, but mark legal text as non-compressible. Retention priority must explicitly protect critical verbatim content.", "notes": "boundary -- precision-critical content"}
+  ],
+  "minimum_pass_rate": 0.8
+}
