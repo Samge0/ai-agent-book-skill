@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Agent Book Skill - 深入理解 AI Agent 技能集</title>
+    <link rel="icon" type="image/png" href="icon.png">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Manrope:wght@500;600;700&family=Noto+Sans+SC:wght@400;500;600;700&family=Noto+Serif+SC:wght@500;600&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'Noto Sans SC', 'sans-serif'],
+                        serif: ['Noto Serif SC', 'serif'],
+                        display: ['Manrope', 'Noto Sans SC', 'sans-serif'],
+                    },
+                    colors: {
+                        brand: {
+                            400: '#d9e066',
+                            500: '#d1d841',
+                            600: '#c5cc3a',
+                            700: '#a8ad32',
+                        },
+                        neutral: {
+                            50: '#fafafa',
+                            100: '#f5f5f5',
+                            200: '#e5e5e5',
+                            300: '#d4d4d4',
+                            400: '#a3a3a3',
+                            500: '#737373',
+                            600: '#525252',
+                            700: '#404040',
+                            800: '#262626',
+                            900: '#171717',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            background: linear-gradient(135deg, #fafafa 0%, #f0f0e8 100%);
+            min-height: 100vh;
+        }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(209, 216, 65, 0.2);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+        }
+        .gradient-bg {
+            background: linear-gradient(135deg, #d1d841 0%, #c5cc3a 100%);
+        }
+        .hero-gradient {
+            background: linear-gradient(180deg, rgba(209, 216, 65, 0.15) 0%, rgba(209, 216, 65, 0.05) 100%);
+        }
+    </style>
+</head>
+<body class="text-neutral-800 antialiased">
+    <!-- Navigation -->
+    <nav class="fixed top-0 left-0 right-0 z-50 glass-card border-b border-neutral-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex items-center space-x-3">
+                    <img src="icon.png" alt="AI Agent Book Skill" class="w-9 h-9 rounded-lg">
+                    <span class="font-semibold text-lg text-neutral-900">AI Agent Book Skill</span>
+                </div>
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="#features" class="text-neutral-600 hover:text-white transition-colors">特性</a>
+                    <a href="#how-it-works" class="text-neutral-600 hover:text-white transition-colors">工作原理</a>
+                    <a href="#skills" class="text-neutral-600 hover:text-white transition-colors">技能集</a>
+                    <a href="https://github.com/Samge0/ai-agent-book-skill" target="_blank" class="text-neutral-600 hover:text-white transition-colors">GitHub</a>
+                </div>
+                <a href="https://github.com/Samge0/ai-agent-book-skill" target="_blank" class="gradient-bg text-white px-5 py-2.5 rounded-lg font-medium hover:shadow-lg transition-all">
+                    开始使用
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="pt-32 pb-20 hero-gradient">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="max-w-4xl mx-auto text-center">
+                <div class="inline-flex items-center space-x-2 bg-white rounded-full px-4 py-2 mb-8 shadow-sm">
+                    <span class="w-2 h-2 rounded-full bg-brand-500"></span>
+                    <span class="text-sm font-medium text-neutral-600">《深入理解 AI Agent》官方技能集</span>
+                </div>
+                
+                <h1 class="text-5xl sm:text-6xl font-bold font-display text-neutral-900 mb-6 leading-tight">
+                    将《深入理解 AI Agent》<br>
+                    <span class="text-white">蒸馏为可直接调用的技能</span>
+                </h1>
+                
+                <p class="text-xl text-neutral-600 mb-10 leading-relaxed max-w-2xl mx-auto">
+                    基于 <strong class="text-neutral-800">李博杰</strong> 所著《深入理解 AI Agent》，使用开源技能提取工具，打造 <strong class="text-white">1 个综合技能 + 25 个原子方法技能</strong>，可被 Hermes、Claude Code、GitHub Copilot CLI 等工具直接加载。
+                </p>
+
+                <div class="flex flex-col sm:flex-row items-center justify-center gap-4 mb-16">
+                    <a href="https://github.com/Samge0/ai-agent-book-skill" target="_blank" class="gradient-bg text-white px-8 py-4 rounded-xl font-semibold text-lg hover:shadow-xl transition-all w-full sm:w-auto">
+                        克隆仓库
+                    </a>
+                    <a href="https://bojieli.com/ai-agent-book/" target="_blank" class="bg-white text-neutral-700 px-8 py-4 rounded-xl font-semibold text-lg hover:bg-neutral-50 transition-all border border-neutral-200 w-full sm:w-auto">
+                        在线阅读原著
+                    </a>
+                </div>
+
+                <!-- Stats -->
+                <div class="grid grid-cols-3 gap-8 max-w-2xl mx-auto">
+                    <div class="text-center">
+                        <div class="text-3xl font-bold text-white mb-1">25</div>
+                        <div class="text-sm text-neutral-500">原子技能</div>
+                    </div>
+                    <div class="text-center">
+                        <div class="text-3xl font-bold text-white mb-1">100%</div>
+                        <div class="text-sm text-neutral-500">章节覆盖</div>
+                    </div>
+                    <div class="text-center">
+                        <div class="text-3xl font-bold text-white mb-1">89%</div>
+                        <div class="text-sm text-neutral-500">方法学提取</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features" class="py-20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl sm:text-4xl font-bold font-display text-neutral-900 mb-4">核心特性</h2>
+                <p class="text-lg text-neutral-600 max-w-2xl mx-auto">基于行业领先的技能提取工具，确保每个技能的质量和实用性</p>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+                <!-- Feature 1 -->
+                <div class="glass-card rounded-2xl p-8 hover:shadow-lg transition-all">
+                    <div class="gradient-bg w-14 h-14 rounded-xl flex items-center justify-center mb-6">
+                        <svg class="w-7 h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-semibold text-neutral-900 mb-3">RIA++ 六段式结构</h3>
+                    <p class="text-neutral-600 leading-relaxed">每个原子技能遵循 RIA++ 结构：原文引用 → 解读 → A1 过去应用 → A2 未来触发 → 执行步骤 → 边界条件，确保技能可直接落地。</p>
+                </div>
+
+                <!-- Feature 2 -->
+                <div class="glass-card rounded-2xl p-8 hover:shadow-lg transition-all">
+                    <div class="gradient-bg w-14 h-14 rounded-xl flex items-center justify-center mb-6">
+                        <svg class="w-7 h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4"/>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-semibold text-neutral-900 mb-3">完整测试套件</h3>
+                    <p class="text-neutral-600 leading-relaxed">每个技能配备 test-prompts.json 测试套件，包含正向测试、混淆测试和跨技能干扰测试，确保 AI 调用时的准确性和可靠性。</p>
+                </div>
+
+                <!-- Feature 3 -->
+                <div class="glass-card rounded-2xl p-8 hover:shadow-lg transition-all">
+                    <div class="gradient-bg w-14 h-14 rounded-xl flex items-center justify-center mb-6">
+                        <svg class="w-7 h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"/>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-semibold text-neutral-900 mb-3">双重工具验证</h3>
+                    <p class="text-neutral-600 leading-relaxed">使用 cangjie-skill 和 book-to-skill 两款开源工具分别提取原子技能和综合技能，交叉验证确保内容完整性。</p>
+                </div>
+
+                <!-- Feature 4 -->
+                <div class="glass-card rounded-2xl p-8 hover:shadow-lg transition-all">
+                    <div class="gradient-bg w-14 h-14 rounded-xl flex items-center justify-center mb-6">
+                        <svg class="w-7 h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-semibold text-neutral-900 mb-3">逐字核验</h3>
+                    <p class="text-neutral-600 leading-relaxed">三个核心论点经逐字核验：Harness = Constrain + Verify + Correct、SFT 记忆化而 RL 泛化化、信噪比判断原则。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works Section -->
+    <section id="how-it-works" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl sm:text-4xl font-bold font-display text-neutral-900 mb-4">工作原理</h2>
+                <p class="text-lg text-neutral-600 max-w-2xl mx-auto">两种技能提取工具，一套完整的方法学技能集</p>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-12 max-w-5xl mx-auto">
+                <!-- Tool 1 -->
+                <div class="space-y-6">
+                    <div class="flex items-start space-x-4">
+                        <div class="gradient-bg w-10 h-10 rounded-lg flex items-center justify-center flex-shrink-0 mt-1">
+                            <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/>
+                            </svg>
+                        </div>
+                        <div>
+                            <h3 class="text-lg font-semibold text-neutral-900 mb-2">cangjie-skill</h3>
+                            <p class="text-neutral-600">提取 25 个原子方法技能，采用 RIA-TV++ 管道：Adler 阅读 → 并行提取 → 三重验证 → RIA++ 构建 → Zettelkasten 链接 → 压力测试。</p>
+                        </div>
+                    </div>
+
+                    <div class="flex items-start space-x-4">
+                        <div class="gradient-bg w-10 h-10 rounded-lg flex items-center justify-center flex-shrink-0 mt-1">
+                            <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM14 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z"/>
+                            </svg>
+                        </div>
+                        <div>
+                            <h3 class="text-lg font-semibold text-neutral-900 mb-2">book-to-skill</h3>
+                            <p class="text-neutral-600">构建 1 个综合技能，包含 10 个章节文件 + 术语表 + 模式 + 速查表，提供完整框架和主题索引。</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tool 2 -->
+                <div class="space-y-6">
+                    <div class="flex items-start space-x-4">
+                        <div class="gradient-bg w-10 h-10 rounded-lg flex items-center justify-center flex-shrink-0 mt-1">
+                            <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
+                            </svg>
+                        </div>
+                        <div>
+                            <h3 class="text-lg font-semibold text-neutral-900 mb-2">章节级审计</h3>
+                            <p class="text-neutral-600">全书 10 章 100 个节段全部独立审计，89% 完全覆盖方法学、框架和原则，11% 部分覆盖 API 实现细节和前沿实验参数。</p>
+                        </div>
+                    </div>
+
+                    <div class="flex items-start space-x-4">
+                        <div class="gradient-bg w-10 h-10 rounded-lg flex items-center justify-center flex-shrink-0 mt-1">
+                            <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                            </svg>
+                        </div>
+                        <div>
+                            <h3 class="text-lg font-semibold text-neutral-900 mb-2">核心论点验证</h3>
+                            <p class="text-neutral-600">三个核心论点经逐字核验确保准确性：Harness 工程范式、SFT 与 RL 的本质区别、评估中的统计显著性原则。</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="py-20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl sm:text-4xl font-bold font-display text-neutral-900 mb-4">提取的技能集</h2>
+                <p class="text-lg text-neutral-600 max-w-2xl mx-auto">覆盖 AI Agent 开发的完整方法学体系</p>
+            </div>
+
+            <!-- Comprehensive Skill -->
+            <div class="glass-card rounded-2xl p-8 mb-8 max-w-4xl mx-auto">
+                <div class="flex items-center space-x-4 mb-6">
+                    <div class="gradient-bg w-12 h-12 rounded-xl flex items-center justify-center">
+                        <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/>
+                        </svg>
+                    </div>
+                    <div>
+                        <h3 class="text-xl font-bold text-neutral-900">ai-agent-book（综合技能）</h3>
+                        <p class="text-neutral-500 text-sm">10 章结构化知识 + 核心框架 + 术语表 + 模式 + 决策速查表</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Atomic Skills Grid -->
+            <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
+                <!-- Chapters 1-5 -->
+                <div class="glass-card rounded-xl p-6">
+                    <div class="text-xs font-semibold text-white mb-3">第 1-5 章（架构与基础设施）</div>
+                    <ul class="space-y-2 text-sm text-neutral-700">
+                        <li>• harness-engineering</li>
+                        <li>• engineering-paradigm-evolution</li>
+                        <li>• kv-cache-friendly-context</li>
+                        <li>• progressive-disclosure-skills</li>
+                        <li>• context-compression-strategy</li>
+                    </ul>
+                </div>
+
+                <div class="glass-card rounded-xl p-6">
+                    <div class="text-xs font-semibold text-white mb-3">记忆与工具</div>
+                    <ul class="space-y-2 text-sm text-neutral-700">
+                        <li>• agent-status-bar</li>
+                        <li>• three-level-memory-evaluation</li>
+                        <li>• agentic-rag</li>
+                        <li>• two-tier-memory-architecture</li>
+                        <li>• tool-design-principles</li>
+                    </ul>
+                </div>
+
+                <div class="glass-card rounded-xl p-6">
+                    <div class="text-xs font-semibold text-white mb-3">编码与协作</div>
+                    <ul class="space-y-2 text-sm text-neutral-700">
+                        <li>• proactive-tool-discovery</li>
+                        <li>• coding-agent-meta-capability</li>
+                        <li>• proposer-reviewer-pattern</li>
+                        <li>• three-level-evaluation-system</li>
+                        <li>• model-swap-vs-ablation</li>
+                    </ul>
+                </div>
+
+                <div class="glass-card rounded-xl p-6">
+                    <div class="text-xs font-semibold text-white mb-3">评估与训练</div>
+                    <ul class="space-y-2 text-sm text-neutral-700">
+                        <li>• pass-at-k-vs-pass-k-k</li>
+                        <li>• statistical-significance-eval</li>
+                        <li>• sft-memorizes-rl-generalizes</li>
+                        <li>• data-environment-over-algorithms</li>
+                        <li>• process-vs-outcome-reward</li>
+                    </ul>
+                </div>
+
+                <div class="glass-card rounded-xl p-6">
+                    <div class="text-xs font-semibold text-white mb-3">进化与实时交互</div>
+                    <ul class="space-y-2 text-sm text-neutral-700">
+                        <li>• verification-generation-asymmetry</li>
+                        <li>• externalized-learning-three-products</li>
+                        <li>• sleep-learning-memory-consolidation</li>
+                        <li>• fast-slow-thinking-separation</li>
+                        <li>• multi-agent-new-information-criterion</li>
+                    </ul>
+                </div>
+
+                <div class="glass-card rounded-xl p-6 flex items-center justify-center">
+                    <div class="text-center">
+                        <div class="text-3xl font-bold text-white mb-2">25</div>
+                        <div class="text-sm text-neutral-500">原子技能总数</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="py-20">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="glass-card rounded-2xl p-12 text-center">
+                <h2 class="text-3xl sm:text-4xl font-bold font-display text-neutral-900 mb-6">开始使用这些技能</h2>
+                <p class="text-lg text-neutral-600 mb-8 max-w-2xl mx-auto">
+                    将仓库 URL 分享给您的 AI Agent（Hermes / Claude Code / GitHub Copilot CLI），让它自动克隆和安装技能。
+                </p>
+                
+                <div class="bg-neutral-100 rounded-xl p-6 mb-8 max-w-2xl mx-auto">
+                    <code class="text-sm text-neutral-700 break-all">https://github.com/Samge0/ai-agent-book-skill</code>
+                </div>
+
+                <a href="https://github.com/Samge0/ai-agent-book-skill" target="_blank" class="gradient-bg text-white px-10 py-4 rounded-xl font-semibold text-lg hover:shadow-xl transition-all inline-block">
+                    克隆仓库
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="py-20 bg-white">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl sm:text-4xl font-bold font-display text-neutral-900 mb-4">常见问题</h2>
+            </div>
+
+            <div class="space-y-4">
+                <details class="glass-card rounded-xl p-6 cursor-pointer hover:shadow-md transition-all">
+                    <summary class="font-semibold text-neutral-900">如何手动安装到 Hermes？</summary>
+                    <p class="mt-4 text-neutral-600">克隆仓库后，将 skill 目录复制到 Hermes skills 目录，或在 Hermes 中使用 /install-skills 命令指定仓库路径。</p>
+                </details>
+
+                <details class="glass-card rounded-xl p-6 cursor-pointer hover:shadow-md transition-all">
+                    <summary class="font-semibold text-neutral-900">这些技能覆盖哪些内容？</summary>
+                    <p class="mt-4 text-neutral-600">89% 的章节内容完全覆盖，包括方法学、框架和原则。11% 部分覆盖 API 实现细节、前沿实验参数等非方法学内容。</p>
+                </details>
+
+                <details class="glass-card rounded-xl p-6 cursor-pointer hover:shadow-md transition-all">
+                    <summary class="font-semibold text-neutral-900">原子技能和综合技能有什么区别？</summary>
+                    <p class="mt-4 text-neutral-600">原子技能聚焦单一方法，包含完整的 RIA++ 结构和测试套件；综合技能提供全书框架，包含章节文件、术语表和决策速查表。</p>
+                </details>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-12 border-t border-neutral-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="flex items-center space-x-3 mb-6 md:mb-0">
+                    <img src="icon.png" alt="AI Agent Book Skill" class="w-8 h-8 rounded-lg">
+                    <span class="font-semibold text-neutral-900">AI Agent Book Skill</span>
+                </div>
+                
+                <div class="flex items-center space-x-6 text-sm text-neutral-500">
+                    <a href="https://github.com/Samge0/ai-agent-book-skill" target="_blank" class="hover:text-white transition-colors">GitHub</a>
+                    <span>MIT 许可证</span>
+                </div>
+            </div>
+            
+            <div class="mt-8 pt-8 border-t border-neutral-200 text-center text-sm text-neutral-400">
+                <p>基于李博杰《深入理解 AI Agent》 · 使用 cangjie-skill 和 book-to-skill 提取</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
